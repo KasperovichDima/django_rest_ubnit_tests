@@ -4,7 +4,7 @@ from django.test import TestCase
 
 class UserModelTests(TestCase):
     def test_create_user_with_email_successful(self):
-        email = 'user_tes@test.com'
+        email = 'user_test@test.com'
         password = '123qwe!@#'
         user = get_user_model().objects.create_user(
             email=email,

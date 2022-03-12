@@ -47,7 +47,9 @@ class PublicUserApiTests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_password_too_short(self):
-        # The length of the password must be equal or more than 8 symbols
+        """
+        The length of the password must be equal or more than 8 symbols
+        """
         payload = {
             'email': 'test_user_1@test.com',
             'password': 'pw',
@@ -124,7 +126,7 @@ class PrivateUserApiTests(TestCase):
             'email': self.user.email
         })
 
-    def test_post_me_not_allowed(self):
+    def test_no_data_update(self):
         res = self.client.post(PROFILE_URL, {})
 
         self.assertEqual(res.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
